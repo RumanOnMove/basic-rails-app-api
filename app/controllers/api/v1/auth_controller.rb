@@ -15,7 +15,7 @@ class Api::V1::AuthController < ApplicationController
     puts params.inspect
     user = User.new(user_params)
     if user.save
-      render json: {data: user}, status: :created
+      render json: {user: user}, status: :created
     else
       render json: {error: user.errors.full_messages}, status: :unprocessable_entity
     end
